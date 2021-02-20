@@ -1,0 +1,406 @@
+\documentclass{article}
+% pre\'ambulo
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{multicol}
+
+
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{enumerate}		
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{theorem}
+
+\theoremstyle{break}
+\newtheorem{Teor}{Teorema}
+\def\proof{\paragraph{Demostraci\'on:\\}}
+\def\endproof{\hfill$\blacksquare$}
+
+
+\title{Algebra Moderna 1}
+\title{Lista 1}
+\author{Sa\'ul Aguilar Rodriguez}
+
+
+\usepackage{vmargin}
+\setpapersize{A4}
+\setmargins{2.5cm}
+{1.5cm}  
+{16.5cm}    
+{23.42cm}
+{10pt} 
+{1cm}
+{0pt}
+{2cm} 
+
+\begin{document}
+\maketitle
+	\begin{enumerate}
+		\item Demuestre que $4m^2+4$ no es divisible por 19 $\forall m \in \mathbb{Z}$. Se cumple lo mismo para todo primo de la forma $4k+3$?
+		
+		\begin{proof}
+		Queremos ver si $4m^2+4$  es divisible por 19, lo cual es equivalente a que $4m^2\equiv -4 mod 19$, sin embargo, tenemos  $m=[0,]\pm [1],\pm [2], ..., \pm [18]$. Elevando al cuadrado, se tiene $4m^2=[0], [4], [16], ...$ Por lo cual $4m^2\not\equiv -4$ mod $19$.
+		\end{proof}
+		
+		
+		\item Sean $a,b,c$ enteros positivos tales que $a^2+b^2=c^2$. Demuestre que 60 divide a $abc$.
+		
+		\begin{proof}
+		Todos los cuadrados perfectos son de la forma $3k$ o $3k+1$. Si $c^2=(3p+1)+(3q+1)=3(p+q)+2$ entonces $c^2$ no puede ser un cuadrado perfecto. entonces 3 divide a ${a^2}$ o a $b^2$. 
+		
+		\end{proof}
+		
+		\item sea $n>1$ un entero. Demuestre que $2^{2^n}-1$ tiene al menos n factores distintos diferentes
+		
+		\begin{proof}
+		Usando el hecho de que $a^2-1^2=(a+1)(a-1)$ multiples veces a tenemos que:
+		
+
+		\begin{center}
+		$(2^{2^{n-1}}+1)(2^{2^{n-2}}+1)...(2^2+1)(2^1+1)(2^1-1)$
+		$=\displaystyle\prod_{k=0}^{n-1}(2^{2^k}+1)(2^1-1)$
+		\end{center}
+		Asi $2^{2^n}-1$ es el producto de n factores.
+		
+		Provemos ahora que estos factores son coprimos. Sea $A=2^{2^a}+1$ y $B=2^{2^b}+1$ supongamos $a>b$. Entonces:
+		\begin{center}
+			$A=(B-1)^{2^{a-b}}+1$
+		\end{center}
+		Por lo tanto:
+		\begin{center}
+			$A\equiv (-1)^{2^{a-b}}+1\equiv 1+1 \equiv 2$ mod $B$.
+		\end{center}
+		Por lo tanto $mcd(A,B)=mcd(2,B)=1$.
+		
+		\end{proof}
+		
+		
+		\item Sean $a$ y $p$ enteros con $p$ primo. Demuestre que $a^p \equiv a$ mod $p$.
+		
+			\begin{proof}
+			Como p es un n\'umero primo, entonces $(p,a)=1$ o $p|a$. Si $(p,a)=1$, entonces $a^{p-1}\equiv 1$ mod $p$ y multiplicando por a ambos lados de la congruencia $a^p \equiv a$ mod $p$. Si $p|a$, entonces $p|a^p$ y se tiene $p|a^p-a$. Por lo tanto $a^p \equiv a$ mod $p$.
+		
+		\end{proof}
+		
+		
+		\item Demuestre que 7 divide a $3^{2n+1}+2^{2n+1} \forall n\in\mathbb{Z}^{+}$
+		
+		\begin{proof}
+		\begin{enumerate}
+			\item Para n=1, tenemos:
+			
+			\begin{center}
+				$3^{2\ast1+1}+2^{1+2}=35$
+			\end{center}
+			Luego 35 es divisible por 7.
+			
+			\item asuma que el resultado se cumple para $n=k \in\mathbb{N}$, entonces
+			
+			\begin{center}
+				$3^{2k+1}+2^{k+2}=7q$
+			\end{center}
+			
+			\item Tomando $n=k+1$, tenemos:
+			
+			\begin{center}
+				$3^{2(k+1)+1}+2^{(k+1)+2}=3^3\ast3^{2k+1}+2\ast2^{k+2}$
+				
+				$=9\ast 3^{2k+1}+9\ast 2^{k+2}-7\ast 2^{k+2}$
+				
+				$=9(3^{2k+1}+2^{k+2})-7\ast 2^{k+2}$
+				
+			\end{center}
+			sustituyendo el valor de (a),
+			
+			\begin{center}
+				$=9(7q)-7\ast 2^{k+2}$
+				
+				$=7(9q-2^{k+2}$).
+			\end{center}
+			
+			Luego, $3^{2(k+1)+1}+2^{(k+1)+2}$ es divisible por 7, con lo cual termina la prueba.
+		\end{enumerate}
+		
+			\end{proof}
+			
+			
+		\item Demuestre que $n^{13}-n$ es divisible por 2,3,5,7 y 13.
+		
+			\begin{proof}
+			Para culquier $p \in \{2,3,5,7,13\}$ se tiene $p-1|12$.
+			Si 		$(n,p)=1$, entonces $n^{12}\equiv 1$ mod $p$ por el pequeño teorema de Fermat, luego: $n^13\equiv n^12\ast n\equiv n$ mod $p$.
+			
+			Ahora si $(n,p)=p$, es claro que $n^{13}-n\equiv 0$ mod $p$.
+			\end{proof}
+			
+			
+		\item Sea $f(x)$ un polinomio en $\mathbb{Z}[x]$. Suponga que $f(0) \equiv f(1) \equiv 1$ mod $2$. Demuestre que $f(x)$ no tiene raices enteras. Generalive este problema a: Si $f(x) \in \mathbb{Z}[x]$ y para todo entero $k>0, f(i) \not\equiv 0$ mod $k$ para todo $i=0,1,...,k-1$. ¿Puede tener $f(x)$ raices enteras?
+		
+		\item Describa $<S>$ para el caso especial de $S=\{g\}$.
+		
+		Supongamos que $g\not=e$entonces si $g$ tiene orden finito, el subgrupo $<S>=<\{g\}>=<g>$ tiene orden igual al orden de $g$. Es decir, si $\circ (g)=n, |<S>|=n$, luego $<S>=<g>=\{g^1,g^2,...,g^n=e\}$. Si $g$ no tiene orden finito, entonces:
+		
+		\begin{center}
+		$<S>=\displaystyle\bigcap_{H<G|S\subset H}{H}$
+		\end{center}
+		$<S>$ es el minimo subgrupo de G que coniene a $g$
+		
+		\item Sea $d$ un entero libre de cuadrado, $\mathbb{Q}(\sqrt{d})=\{a+b\sqrt{d} | a,b\in\mathbb{Q}\}$ Demuestre que $\mathbb{Q}(\sqrt{2})\backslash \{0\}$ es un grupo con la multiplicacion usual de los n\'umeros complejos
+			
+			\begin{proof}
+				Sea $\ast:\mathbb{Q}(\sqrt{d})\times\mathbb{Q}(\sqrt{d})\rightarrow \mathbb{Q}(\sqrt{d})$ dada por $\ast(x+y\sqrt{d}, u+v\sqrt{d})=x+y\sqrt{d} \ast u+v\sqrt{d}=(xu-yv)+(xv+yu)\sqrt{d}$.
+				\begin{itemize}
+					\item Sea $e=1+0\sqrt{d}$ entonces sea $x+y\sqrt{d}\in\mathbb{Q}(\sqrt{d})$, $(x+y\sqrt{d})\ast e=(1*x+y\sqrt{d})\ast =e\ast(x+y\sqrt{d})\ast $ entonces $e$ es a identidad multiplicativa en $\mathbb{Q}(\sqrt{d})$. 
+					\item Sea $u=(x+y\sqrt{d})$ definimos $u^{-1}=\frac{x-y\sqrt{d}}{x^2+y^2}$, entonces
+					$u\ast u^{-1}=(x+y\sqrt{d})\ast\frac{x-y\sqrt{d}}{x^2+y^2} =(x\ast\frac{x}{x^2+y^2}-y\ast\frac{-y}{x^2+y^2})+ (x\ast\frac{y}{x^2+y^2}+y\ast\frac{x}{x^2+y^2})=(\frac{x^2+y^2}{x^2+y^2}+\frac{xy-yx}{x^2+y^2})=1=(\frac{x}{x^2+y^2}\ast x-\frac{-y}{x^2+y^2}\ast y)+ (\frac{y}{x^2+y^2}\ast x+\frac{x}{x^2+y^2}\ast y)=u^{-1}\ast u$ 
+					\item La asociatividad de $\ast$se sigue de la asocitividad en $\mathbb{Q}$
+				\end{itemize}
+			\end{proof}
+			
+		\item Sea $m$ un entero posiivo, $G=\{0,1,...,m-1\}$. Se define en G la siguiente operacion: $a\circ b=a+b$ si $a+b<m$; $a\circ b=r$, con $a+b=m+r$ si $a+b \geq m$ ¿Es $(G,\circ)$ un grupo?
+		
+		\begin{proof}
+			
+			\begin{itemize}
+				\item Es claro que 0 es la identidad aditiva
+				\item Sea $a\in G$ definimos $-a$ como $-a=m-a$, entonces $a+(-a)=0$.
+			\end{itemize}
+		\end{proof}
+		\item Sea $G=\mathbb{Z}\times\mathbb{Q}$, se define en G la operacion
+		
+		\begin{center}
+		$(a,b)\circ(c,d)=(a+c, 2^c b+d)$
+		\end{center}
+		¿Es $(G,\circ )$ un grupo?
+		
+		\begin{proof}
+			
+			\begin{itemize}
+				\item Identidad.
+				
+					Definimos la identidad en G como  $(0,0)$. Sea $(a,b)\in G$, entonces $(a,b)\circ(0,0)=(a+0,2^0b+0)=(a,b)=(0+a,2^a0+b)=(0,0)\circ(a,b)$.
+					
+				\item Asociatividad.
+				
+				$((a,b)\circ(c,d))\circ(g,f)=((a+c)+g, 2^g(2^c b+d)+f)=(a+(c+g), 2^{c+g} b+2^g d+f)=(a,b)\circ(c+g,2^g d+f)=(a,b)\circ((c,d)\circ(g,f))$.
+				
+				\item Existencia del inverso
+				
+				Sea $(a,b)\in G $ entonces definimos el inverso como $(a,b)^{-1}=(-a, -2^{-a}b)$. Luego $(a,b)\circ(a,b)^{-1}=(a,b)\circ(-a,-2^{-a}b)=(a+(-a), 2^{-a}b+(-2^{-a}b))=(0,0)=((-a)+a,(-2^{-a}b)+2^{-a}b)=(a,b)\circ(-a,-2^{-a}b)=(a,b)\circ(a,b)^{-1}$.
+				
+			\end{itemize}
+			
+		\end{proof}
+		
+		\item Sea $B=\{f: \mathbb{Z}\rightarrow\mathbb{Z} | f$ es funcion $\}$ y sea $G=\mathbb{Z}\times B$. Se define en G la siguiente operacion: $(m,f)\circ(n,g)=(m+n,h)$ con $h(z)=f(z-n)+g(z)$. ¿Es $(G,\circ)$ un grupo?
+		
+		\begin{proof}
+			Sea $(m,f)\in B$ supongamos que existe $e=(e_1,e_2)$ la identidad en $B$, luego $(m,f)\circ(e_1,e_2)=(m,f)=$ donde, de acuerdo a la definicion de $\circ$ entonces $e_1=0$ y $f(z)=f(z-n)+e_2(z)$. asi que $ e(z)=f(z)-f(z-n)$. Por tanto no existe la identidad en $B$, luego, $(G,\circ)$ no es un grupo.
+		\end{proof}
+		
+		\item Una isometria en $\mathbb{R}^{n}$ es una funcion $f:\mathbb{R}^{n}\rightarrow \mathbb{R}^{n}$ tal que $\left\|x-y\right\|=\left\|f(x)-f(y)\right\|$, $\forall x,y\in \mathbb{R}$. Sea $f:\mathbb{R}^{n}\rightarrow \mathbb{R}^{n}$ una funcion tal que $f(0)=0$. Demuestre que f es una isometria si y solo si $f$ preserva producto interno, es decir, $<f(x),f(y)>=<x,y>$ $\forall x,y\in \mathbb{R}^n$.
+		
+			\begin{proof}
+				
+					 Supongamos que $f$ es una isometria. Entonces $\left\|x-y\right\|=\left\|f(x)-f(y)\right\|$. Si y solo si $<x-y,x-y>=<f(x)-f(y), f(x)-f(y)>$, $<x,x>+<y,y>-2<x,y>=<f(x),f(x)>+<f(y),f(y)>-2<f(x),f(y)>$...(*) si y solo si, se tiene $\left\|x\right\|=\left\|f(x)\right\|$, de donde $<x,x>=<f(x),f(x)>$, si y solo si $-2<x,y>=-2<f(x),f(y)>$, es decir, $<x,y>=<f(x),f(y)>$
+					
+			\end{proof}
+			
+		\item Una funcion af\'in $f:\mathbb{R}^n\rightarrow\mathbb{R}^n$, es una funcion $f=T+b$, con T una transformacion lineal no singular de $\mathbb{R}^n$ en $\mathbb{R}^n$ y $b\in\mathbb{R}^n$ fijo. Demuestre que una funcion $f:\mathbb{R}^n\rightarrow\mathbb{R}^n$ es una isometria si y solo si es afin con $T$ ortogonal. Demestre que el conjunto de isometrias de $\mathbb{R}^n$ es un grupo con la composicion usual de funciones, a este grupo lo denotaremos por $I(\mathbb{R}^n)$.
+		
+		\begin{proof}
+			Sea $A$ una isometria y $\{u_k|k=1,...,n\}$ una base ortogonal de $\mathbb{R}^n$, entonces $\{A(u_K)|k=1,...,n\}$ tambien es una base
+			Se tiene que para cualquier $x\in\mathbb{R}^n$ puede ser escrito como $x=\displaystyle\sum_{k=1}^{n}{\frac{<x,u_k>}{\left\| u_k\right\|^2}u_k}$. si y solamente si $Ax=\displaystyle\sum_{k=1}^{n}{\frac{<Ax, Au_k>}{\left\| Au_k\right\|^2}Au_k}=\displaystyle\sum_{k=1}^{n}{\frac{<x,u_k>}{\left\| u_k\right\|^2}Au_k}$ Asi, $\acute{A}=A-A(0)$ es una funcion lineal ortogonal, luego $A(x)=T(x)+v$.
+			Sabemos que una matriz ortogonal preserva productos internos, es decir: $<A(x),A(x)>=<x,y>$, luego, por el ejercicio anterior $A$ es una isometria.
+			
+			Sea $I(\mathbb{R}^n)$ el conjunto de isometrias con la composicion usual de funciones. 
+			
+			\begin{itemize}
+				\item Es claro que la funcion identidad es una isometria y satisface $A\circ I=A=I\circ A$, $\forall A\in I(\mathbb{R}^n)$. 
+				
+				\item La asociatividad se hereda de la asociatividad de las funciones.
+				
+				\item Se afirma que $\forall A\in I(\mathbb{R}^n), \exists A^{-1}: A\circ A^{-1}=I$ pues $A$ es no singular.
+			\end{itemize}
+			
+		\end{proof}
+		
+		\item Sean $S$ un conjunto no vac\'io de $\mathbb{R}^n$, $I(S)= f\in I(\mathbb{R}^n| f(S)\subset S, f^{-1}(S)\subset S\}$. Demuestre que $I(S)$ es un subrupo de $I(\mathbb{R}^n)$
+			
+		\begin{proof}
+			Sea $ A,B\in I(S)$ entonces, como $A(S)\subset S y A^{-1}(S)\subset S$ entonces $A^{-1}(S)\subset S$ y $(A^{-1})^{-1}(S)\subset SA^{-1}(S)\subset S$ implican que $A^{-1}\subset S$ Luego la composicion de funcioes tambien es ortogonal, por lo cual $B\circ A^{-1}(S) \subset B(S)\subset S$ y tambien para la imagen inversa, por lo tanto, $I(S)$ es un subgrupo.
+		
+		\end{proof}
+		
+		\item Sea $G$ un gruop de orden par. Demuestre que $G$ contiene un elemento de orden 2.
+		
+			\begin{proof}
+				Considere el conjunto $\{(a,a^{-1})|a\in G, g^2\not=e, g\not=g^{-1}\}$ Note que hay un elemento que no esta en el conjunto, la identidad, y si $|G|=2n$, entonces hay $n-1$ parejas en el conjunto, luego dado que el numero de elementos de $G$ es par, debe haber al menos un elemento m\'as $a\in G$, con $a\not=e$y por tanto $a=a^{-1}$, lo cual implica que $a^2=e$.
+				
+			\end{proof}
+			
+		\item Sea X un conjunto con n elementos, $S_X=\{f:X\rightarrow X| f$ es biyectiva$\}$. Demuestre que $S_X$ forma un grupo con la operacion composicion de funciones y tiene cardinalidad $n!$. 
+			\begin{proof}
+				
+				La asociatividad de funciones se hereda, la funcion identidad es biyectiva y esta contenida en $S_X$.Como cada funcion $f$ es biyectiva, entonces existe su inversa y tambien es biyectiva, luego est\'a contenida en el conjunto. Por tanto $S_X$ es un grupo.
+
+			\end{proof}
+		\item Caracterice los subgrupos de $(\mathbb{Z},+)$
+		
+			Dado $n\in\mathbb{Z}$, $n\geq 0$ y sea $\mathbb{Z}n=\{kn|k\in\mathbb{Z}\}$ entonces $\mathbb{Z}n$ es un subgrupo de $\mathbb{Z}$ y todo subgrupo de $\mathbb{Z}$ es de la forma $\mathbb{Z}n$.
+			
+			\item Sea $G$ un grupo, $ZG)=\{ x\in G|xg=gx  \forall g\in G\}$. Demuestre que $Z(G)$ es un subgrupo abeliano de $G$ llamado el centro de $G$.
+			
+			\begin{proof}
+				Es claro que la identidad se encuentra en $Z(G)$. Sea $a,b\in Z(G)$, entonces, dado $g\in G$, $(ab^{-1})g=a(b^{-1}g)=a(g^{-1}b)^{-1}=a(ag^{-1})^{-1}=a(gb^{-1})=(gb^{-1})a=g(b^{-1}a)=g(ab^{-1})$, por tanto $ab^{-1}\in Z(G)$, luego $Z(G)$ es un subgrupo, adem\'as es abeliano.
+			\end{proof}
+		\item Sea $G=GL(n,\mathbb{R})$, el grupo de matrices $n\times n$ no singulares con entradas en $\mathbb{R}$. $H=\{A\in GL(n,\mathbb{Z})\subset G| detA=\pm 1\}$. Demuestre que $H<G$.
+		
+			\begin{proof}
+				Sabemos de algebra lineal que si una matriz invertible con entradas enteras tiene su inversa con entradas enteras. A demás $detA^{-1}=\frac{1}{detA}=\pm 1$ por tanto si $A\in H$ entonces $A^{-1}\in H$. La matriz identidad tambien esta en $H$ y la asociatividad de matrices se hereda. Se sigue que $H<G$.
+			\end{proof}
+		
+		\item Sean$H,k$ dos subgrupos de un grupo $G$. Demuestre que $H\cup K$ es un subgrupo si y sólo si $H\subset K$ o $k\subset H$.
+		
+			\begin{proof}
+				Si $H\subset K$ o $k\subset H$, entonces $H\cup K=K$ \'o $H\cup K=H$ y se cumple $h\cup K<G$.
+				Supongamos que $h\cup K<G$, sean $a\in H\backslash K$ y $b\in K\backslash H$. Luego $a+b\in H\cup K$, entonces $a+b\in H$ o $a+b\in K$. Si $a+b\in H$ $(-a)+(a+b)\in H$, es decir $(-a)+(a+b)=b\in H$ lo cual es una contradiccion, pues $b\in K\backslash H$. Se procede de manera similar si $a+b\in K$, con lo cual se concluye que $H\backslash K=\emptyset$ \'o $K\backslash H=\emptyset$
+			\end{proof}
+			
+		\item Sea $G$ un grupo y $C$ una cadena de subgrupos de $G$. Demuestre que la union de los elementos de $C$ es un subgrupo de $G$.
+			\begin{proof}
+				Sea $C=\{H_n\}_n$ una cadena de subgrupos tales que $H_{n+1}\subseteq H_n$. Sea $H=\bigcup_{H_n\subset C}{H_n}$. Sea $a,b\in H$ entonces $a\in H_m$ y $a\in H_k$ para $m,k\in\mathbb{N}$, sea $r=min{m,k}$ entonces $a+b^{-1}\in H_r\subset H$,con lo cual se concluye que $H$ es un subgrupo.
+			\end{proof}
+			
+			\item Sea $G$ un grupo, $x,y\in G$ tales que $xy=yx$ y que satisfacen $(|x|,|y|)=1$. Demuestre que $|xy|=|x||y|$.
+			
+			\begin{proof}
+				Sea $n=|x|$ y $m=|y|$, para un comun multiplo $k$ con $k=na=mb$ para algunos $a,b\in\mathbb{Z}$ se tiene:
+				
+				$(xy)^k=x^k y^k=(x^n)^a (y^m)^b=e$, y si $k=|xy|$, entonces $k\leq mn$
+				
+				Entonces $(xy)^k=e$ para cualquier multiplo comun de $n$ y $m$.
+				Para un multiplo comun k, como $x^ky^k=e$, $x^k=y^{-k}=y^{m-k}$, $|x^k|=n/d$ donde $d=(n,k)$ y $|y^{m-k}|=n/d$, pero $|y^{m-k}|=m/\acute{d}$, con $\acute{d}=(m-k,m)$. asi que $\frac{n}{d}=\frac{\acute{m}}{d}$ $\Rightarrow$ $n\acute{d}=md$. Como $(m,)=1$, $m|\acute{d}$ y $n|d$, entonces $n=d$ y $m=\acute{d}$, con lo cual $mn\leq k$.
+			\end{proof}
+		
+		\item Sea G el grupo de matrices con entradas en $\mathbb{Q}$.
+$A=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$ y $B=(\begin{smallmatrix}0&1\\-1&-1\end{smallmatrix}\bigr)$
+	elementos de $G$, demuestre que $A$ y $B$ tienen ordenes primos relativos Y $AB$ tiene orden infinito. ¿Contradice esto al ejercicio anterior?.
+
+		\begin{proof}
+			Note que $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}-1&0\\0&-1\end{smallmatrix}\bigr)$ Entonces $|A|=4$.
+			
+			Ahora, observe $\bigl(\bigl(\begin{smallmatrix}0&1\\-1&-1\end{smallmatrix}\bigr) \bigl(\begin{smallmatrix}0&1\\-1&-1\end{smallmatrix}\bigr)\bigr) \bigl(\begin{smallmatrix}0&1\\-1&-1\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}-1&-1\\1&0\end{smallmatrix}\bigr) \bigl(\begin{smallmatrix}0&1\\-1&-1\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\bigr)$. Entonces $|B|=3$.
+			
+			Se tiene $(|A|,|B|)=(4,3)=1$.
+			
+			Ahora, se tiene: $\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}0&1\\-1&-1\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$. Provaremos que $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)^n=\bigl(\begin{smallmatrix}1&n\\0&1\end{smallmatrix}\bigr)$ $\forall n\in\mathbb{N}$.
+			
+			
+			\begin{itemize}
+				\item Para $n=1$ se cumple, para $n=2$, $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)^2=\bigl(\begin{smallmatrix}1&2\\0&1\end{smallmatrix}\bigr)$ $\forall n\in\mathbb{N}$ tambien se cumple.
+				
+				\item supongamos que se cumple para  $k\in\mathbb{N}$, $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)^k=\bigl(\begin{smallmatrix}1&k\\0&1\end{smallmatrix}\bigr)$ $\forall n\in\mathbb{N}$
+				
+				\item Ahora, $\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)^{k+1}=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)^k \bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)  =\bigl(\begin{smallmatrix}1&k\\0&1\end{smallmatrix}\bigr)\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)=\bigl(\begin{smallmatrix}1&k+1\\0&1\end{smallmatrix}\bigr)$ 
+				
+			\end{itemize}
+		Por lo tanto el orden de $AB$ es infinito.
+		
+		Este ejemplo no contradice el ejercicio anterior, pues $AB\not=BA$, hipotesis necesaria para probar el enunciado.
+		\end{proof}
+		
+		\item Sean $H$ y $K$ subgrupos de $G$. Demuestre que $|HK||H\cap K|=|H||K|$.
+		
+		\begin{proof}
+			Observe que $HK=\bigcup _{k\in K}{kH}$. Asi que $|HK|=|\bigcup _{k\in K}{kH}|$. 
+			
+			Para $h,h_1 \in H$, $hK=h_1K$ $\Leftrightarrow$ $h_{1}^{-1}h\in K$ $\Leftrightarrow$ $h_{1}^{-1}h\in H\cap K$.
+			
+			As\'i hay $|H\cap K|$ elementos $h_1\in H$ tales que $hK=h_1 K$. Si consideramos a todos los elementos de la forma $hk$ con $h\in H$ y $k\in K$, entonces tenemos $|H||K|$ elementos de esta forma, y si dividimos la cantidad de estos elementos porlos que no se repiten tenemos exactamente los elementos de $HK=\bigcup _{k\in K}{kH}$, es decir 
+			
+			$|HK|=|HK=\bigcup _{k\in K}{kH}|=\frac{|H||K|}{|H\cap K|}$.
+		\end{proof}
+		
+		\item Sea $G$ un grupo abeliano, $T(G)=\{g\in G|g^n=e, n\in\mathbb{N}\}$. Demuestre que $T(G)$ es un subgrupo de $G$, el cual se llama el subgrupo de torision de G.
+		
+			\begin{proof}
+				Sea $a,b\in T(G)$, entonces $(ba^{-1})^n=b^n a^{-n}=e(a^n)^{-1}=e$, pues G es abeliano. Por tanto $T(G)$ es un subgrupo de $G$.
+			\end{proof}
+			
+		\item Sea G un grupo que contiene un n\'umero finito de subgrupos. Demuestre que $G$ es finito.
+		
+		\begin{proof}
+			Sea $g\in G$ un elemento arbitrario distinto de la identidad, si $g$ tiene orden infinito, entonces el subgrupo $<g> \leq G$ es finito, de lo contrario existe un isomorfismo de $<g>$ en $\mathbb{Z}$ (por ser $<g>$ ciclico y abeliano), sin embargo $\mathbb{Z}$ posee una infinidad de subgrupos ($n\mathbb{Z}$), por tanto $g$ tiene orden finito y esto se cumple $\forall g\in G$. 
+			
+			Sea $m$ el numero de subgrupos de $G$, sabemos que $<g>$ es el subgrupo mas pequeño que contiene a $g$. Asi, fije $g_1\in G\backslash\{e\}$. Si $<g_1>=G$ termina la prueba, de lo contrario, considere $g_2\in G\backslash\{e\cup<g_1>\}$. Si $<g_1>\cup <g_2>=G$ entonces termina la prueba. Aplicando este razonamiendo, existe un $n\in\mathbb{N}$, con $n\leq m$ tal que 
+			
+			$$
+			G=\displaystyle\bigcup_{i=1}^{n}{<g_i>}
+			$$
+			Pues de lo contrario $G$ contendria mas subgrupos que los $m$ existentes, lo cual no ocurre.
+			Y como cada $<g_i>$ es finito, la union de todos ellos tambien es finita, luego G es finito.
+		\end{proof}
+		
+		\item Sean $a$ y $m$ enteros primos relativos, $\varphi$ la funcion de Euler. Demuestre que $a^{\varphi (m)}\equiv 1 \mbox{ mod }m$
+		
+		\begin{proof}
+			Considere el conjunto $A=\{n_1,n_2,...,n_{\varphi(m)}\}\mbox{ mod } m$ de modo que los elementos del conjunto son primos relativos a $m$. Se probar\'a que este conjunto es igual al conjunto $B=\{an_1,an_2,...,an_{\varphi (m)}\}\mbox{ mod }m$ donde $(a,m)=1$. Todos los elementos de $B$ son primos relativos de $m$, por lo que si todos los elementos de $B$ son distintos, entonces $B$ tiene los mismos elementos de $A$. Es decir, cada elemento de $B$ es congruente con uno de $A$. Esto significa que $n_1n_2...n_{\varphi(m)}\equiv an_1an_2...an_{\varphi(m)} \mbox{ mod }m$ lo cual implica que $a^{\varphi(m)}(n_1n_2...n_{\varphi(m)})\equiv n_1n_2...n_{\varphi(m)}\mbox{ mod }m$, o lo que es igual, $a^{\varphi(m)}\equiv 1\mbox{ mod }m$ como se queria probar. tenga en cuenta que se permite dividir entre $n_1n_2...n_{\varphi(m)}$ ya que es primo relativo de $m$.
+		\end{proof}
+		
+		\item Sea $G$ un grupo finito, $S$ y $T$ subconjuntos no vacios de $G$. Demuestre que $G=ST$ \'o $|G|\geq |S|+|T|$.
+		
+		\begin{proof}
+			supongamos que $|S|+|T|>|G|$. defina $S^{-1}=\{s^{-1}|s\in S\}$ y sea $g\in G$, note que $|gS^{-1}|=|S^{-1}|$, entonces $gS^{-1}$ y $T$ se intersectan y por tanto, $gs^{-1}=t$ $\rightarrow$ $g=ts$ $\rightarrow$ $G=TS$.
+		\end{proof}
+		
+		\item Sea G un grupo de orden $p^{k}m$ con $(p,m)=1$, y $H<G$ tal que $|H|=p^{k}$ y $K<G$ tal que $|K|=p^d$, con $0\leq d\leq k$ y $K$ no contenido en $H$. Demuestre que HK no es subgrupo.
+		
+		\begin{proof}
+			Sabemos que si $HK$ es un grupo, entonces 
+			
+			$|HK|=\frac{|H||K|}{|H\cap K|}\in \mathbb{Z}$, 
+			
+			luego $|H\cap K|\mid |K|$, entonces 
+			
+			$\frac{|K|}{|H\cap K|}=p^{d-a}$ con $p^a=|H\cap K|\not=|H|$,
+			
+			asi $|HK|=p^k p^{d-a}$ entonces, como $|HK|\mid |G|$, $p^k p^{d-a}\mid p^k m$, luego $p^{d-a}\mid m$ lo cual es una contradiccion.
+		\end{proof}
+		
+		\item Sea $a$ un entero mayor que 1 y $n\in\mathbb{N}$. demuestre que $n\mid\varphi(a^n-1)$.
+		
+		\item Sea $H$ un subgrupo de un grupo $G$. Demuestre que $H=Hg$ si y solo si $g\in H$
+		
+		\begin{proof}
+			$H=gH$, si y solo si $h\in H$ se puede escribir como $h=gh_1$ para algun $h_1\in H$, si y solo si $g=hh_1^{-1}$ si y solo si $g\in H$. 
+		\end{proof}
+		
+		\item Pruebe que el producto de subgrupos de un subgrupo es asociativo.
+		
+		\begin{proof}
+			Sean $X,Y,Z <G$, sea $a\in (XY)Z$, $a=(xy)z$ con $x\in X$, $y\in Y$, $z\in Z$. Pero $(xy)z=x(yz)$ $\forall x,y,z\in G$, luego $a=x(yZ)$ asi $(XY)Z\subset X(YZ)$. de manera similar se verifica que $x(YZ)\subset (XY)Z$. 
+		\end{proof}
+		
+		\item Sea $G$ un grupo, $S$ un subconjunto finito no vacio de $G$. Si $SS=S$ entonces $S$ es un grupo. ¿Qu\'e ocurre si $S$ no es finito?
+		
+		\begin{proof}
+			Para $x\in H$ considere la funcion $f_x:H\rightarrow H$ definida por $f_x(h)=xh$. Es facil ver que esta funcion es biyectiva, luego, existe $h_0\in H$ tal que 
+			$$
+			x=f_x(h_0)=x
+			$$
+			
+			luego $h_0=e$ y con esto $e\in H$. Pero esto implica que  si $h_1\in H$ entonces 
+			
+			$$
+			e=f_x(h_1)=xh_1
+			$$
+			
+			y asi $h_1=x^{-1}\in H$. Como $x\in H$ fue arbitrario, hemos provado que $e\in H$ y $x^{-1}\in H$, $\forall x\in H$.
+			
+		\end{proof}
+	\end{enumerate}
+\end{document}

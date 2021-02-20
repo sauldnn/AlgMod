@@ -1,0 +1,382 @@
+\documentclass{article}
+% pre\'ambulo
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{multicol}
+
+
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{enumerate}		
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{theorem}
+
+\theoremstyle{break}
+\newtheorem{Teor}{Teorema}
+\def\proof{\paragraph{Demostraci\'on:\\}}
+\def\endproof{\hfill$\blacksquare$}
+
+
+\title{Algebra Moderna 1}
+\title{Lista 1}
+\author{Sa\'ul Aguilar Rodriguez}
+
+
+\usepackage{vmargin}
+\setpapersize{A4}
+\setmargins{2.5cm}
+{1.5cm}  
+{16.5cm}    
+{23.42cm}			
+{10pt} 
+{1cm}
+{0pt}
+{2cm} 
+
+\begin{document}
+\maketitle
+	
+	\begin{enumerate}
+		\item Sea $G$ un grupo, $H$ un subgrupo de $G$ de \'indice 2. Demuestre que $H$ es normal. Generalice el resultado como sigue: si $H$ es un subgrupo de $G$ tal que $[G : H]$ es el menor primo que divide a $|G|$ entonces $H$ es normal.
+		
+		\begin{proof}
+			Como $[G:H]=2$ entonces, si $g\in G$ se tiene que $gH=H$ o $gH$ y $H$ son disjuntos, con lo cual $gH=G-H$, pero las clases derechas tambien son disjuntas, es decir $Hg=G-H$, pues de lo contrario $Hg=H$ lo cual implica que $g\in H$. Se concluye que $gH=Hg$, es decir, $H\triangleleft G$.
+		\end{proof}
+		
+	\item Demuestre que la intersecci\'on de cualquier colecci\'on de subgrupos normales es un subgrupo normal.
+	
+	\begin{proof}
+		Sea $H=\displaystyle\bigcap_{i\in I}{H_i}$ la interseccion de una familia de subgrupos normales de $G$. Sea $x\in G$, sea $a\in xH$, $a=xh$ para algun $h\in H$, note que $x\in Hi$ $\forall i\in I$ luego $xh\in xH_i$ $\forall i\in I$ por lo cual existe $h_1\in H$ tal que $xh=h_1x$, por lo cual $a\in Hx$. Se concluye que $xH=Hx$ y asi $H=\displaystyle\bigcap_{i\in I}{H_i}$ es normal en $G$.
+	\end{proof}
+	
+	\item	Sea $H\triangleleft G$ tal que $[G:H]=n$. Demuestre que $y^n\in H$ para todo $y\in G$.
+	
+	\begin{proof}
+		Como $H$ es normal, $G/H$ es un grupo de orden $n$, por el teorema de Lagrange, el orden de cualquiern elemento de $G/H$ divide a $n$, en particular si $gH\in G/H$, entonces $(gH)^n=H$. A demas $(gH)^n=g^nH=H$, lo cual implica que $g^n\in H$.
+	\end{proof}
+	
+	\item Sea $G$ un grupo y $\acute{G}$ el subgrupo generado por todos los elementos de la forma $xyx^{-1}y^{-1}$, con $x,y\in G$. A $\acute{G}$ se le llama el subgrupo derivado o subgrupo conmutador de $G$. Demuestre que $\acute{G}\triangleleft G$ y $G/\acute{G}$ es abeliano. De hecho $\acute{G}$ es el menor subgrupo normal con tal propiedad, es decir, si $H$ es subgrupo normal de $G$, entonces $G/H$ es abeliano si y solo si $\acute{G}\subset H$.
+		
+		\begin{proof}
+			Note que 
+			
+			$g(xyx^{-1}y^{-1})g^{-1}=(gxg^{-1})(gyg{-1})(gx^{-1}g^{-1})(gy^{-1}g^{-1})=(gxg^{-1})(gyg^{-1})(gxg^{-1})^{-1}(gyg^{-1})^{-1}$.
+			
+			Entonces $g(xyx^{-1}y^{-1})g^{-1}$ es de la forma $(gxg^{-1})(gyg^{-1})(gxg^{-1})^{-1}(gyg^{-1})^{-1}$ y por tanto $g(xyx^{-1}y^{-1})g^{-1}\in \acute{G}$. Luego $\acute{G}$ es normal.
+			
+			Veamos ahora que $G/\acute{G}$ es abeliano. En efecto, sean $X,Y\in G/\acute{G}$ con $X=x\acute{G}$, $Y=y\acute{G}$, entonces $YX=(y\acute{G})(x\acute{G})=yx(x^{-1}y^{-1}xy)\acute{G}=xy\acute{G}=XY$.
+		\end{proof}
+		
+		\item Sea $G$ un grupo, entonces las siguientes condiciones son equivalentes:
+		
+\begin{itemize}
+
+
+			\item $G''=\{e\}$
+			\item $\exists H\triangleleft G$ tal que $H$ y $G/H$ son abelianos
+\end{itemize}
+		
+		\begin{proof}
+			Supongamos que $G''=\{e\}$, entonces $\acute{G}$ es abeliano. En efecto, sean $[x,y],[u,v]\in G'$, donde $[x,y]=xyx^{-1}y^{-1}$ y $[u,v]=uvu^{-1}v^{-1}$. Se tiene que $[x,y][u,v][x,y]^{-1}[u,v]^{-1}\in G''$, pero $G''=\{e\}$ entonces $[x,y][u,v][x,y]^{-1}[u,v]^{-1}=e$, luego $[x,y][u,v]=[u,v][x,y]$, y como $[x,y],[u,v]\in \acute{G}$ fueron arbitrarios, $\acute{G}$ es abeliano. Y por el ejercicio anterior se cumple la condicion $(b)$ se cumple para $H=\acute{G}$.
+			
+			Ahora supongamos que $\exists H\triangleleft G$ tal que $H$ y $G/H$ son abelianos. Se tiene entonces que $\acute{G}\subset H$, lo cual implica que $\acute{G}$ es abeliano, luego sean $[x,y],[u,v]\in \acute{G}$, entonces $([x,y][u,v])([x,y]^{-1}[u,v]^{-1})=[x,y][x,y]^{-1})([u,v][u,v]^{-1})=e$, por lo tanto $G''=\{e\}$.
+		\end{proof}
+		
+		\item Sea $G$ un grupo, $H<G$ tal que $\acute{G} <H$. Demuestre que $H\triangleleft G$.
+		
+		\begin{proof}
+			Por hipotesis $[a,b]\in H$ para todo $a,b\in G$. Entonces si $g\in G$ y $x\in H$, se tiene: $ gxg^{-1}=xx^{-1}gxg^{-1}=x[x^{-1},g]$. Como $x\in H$ y $[x^{-1},g]\in H$, entonces $x[x^{-1},g]\in H$, por lo tanto $gxg^{-1}\in H$ y por tanto $H$ es normal.
+		\end{proof}
+		
+		\item sea G un grupo finito, $H\triangleleft G$ tal que $(|H|,[G:H])=1$. Demuestre que $H$ es el \'unico subgrupo de $G$ con orden $|H|$.
+		
+		\begin{proof}
+			Asuma $|H|=|K|$, tenemos que 
+			
+			$$
+			|HK|=\displaystyle\frac{|H||K|}{|H\cap K|}=\displaystyle\frac{|H|^2}{|H\cap K|}
+			$$
+			Por el teorema de Lagrange: 
+			
+			$$
+			|G|=[G:H]|H|=[G:HK]|HK|
+			$$
+			
+			Tenemos entonces que 
+			
+			$$
+			[G:H]=[G:HK]\displaystyle\frac{|H|}{|H\cap K|}
+			$$
+			
+			si $|H\cap K|<|H|$ entonces existe un factor $n\not=1$  de $|H|$ en el lado derecho de la igualdad note que $|H|/|H\cap K|=n\in\mathbb{N}$). entonces $n|[G:H]$, es una contradiccion al hecho de que $(|H|,[G:H])=1$, con lo cual se concluye que $|H\cap K|=|H|$ y como $|H|=|K|$ podemos concluir que $H=K$.
+		\end{proof}
+		
+		
+		\item Sea $S^1=\{z\in\mathbb{C}| |z|=|\}$. Demuestre que $S^1$ es un grupo con la operacion producto de n\'umeros complejos y $S^1\cong\mathbb{R}/\mathbb{Z}$; con $\mathbb{R}$ como grupo aditivo.
+		
+		\begin{proof}
+			Sean $a+bi, c+di\in S^1$, entonces 
+			
+			$$|(a+bi)\times(c+di)|=\sqrt{(ac-bd)^2+(ad+bc)^2}=\sqrt{(ac)^2+(bd)^2-2(acbd)+(ad)^2+(bc)^2+2(adbc)}=
+			$$
+			
+			$$
+			=\sqrt{c^2(a^2+b^2)+d^2(b^2+a^2)}=\sqrt{(a^2+b^2)(c^2+d^2)}=\sqrt{(a^2+b^2)}\sqrt{(c^2+d^2)}=1.
+			$$
+			
+			Ademas si $z\in S^1$ entonces $|z^{-1}|=|\frac{\overline{z}}{|z|^2}|=1$ entonces $z^{-1}\in S^1$.
+			
+			
+			Sea $f:\mathbb{R}\rightarrow S^1$ definida como $x\mapsto e^{2\pi ix}$.
+			
+			$f$ es homomorfismo, pues $f(x+y)=e^{2\pi i(x+y)}=e^{2\pi ix}e^{2\pi iy}=f(x)f(y)$.
+			
+			$f$ es suprayectiva. Sea $z\in S^1$, $e^{i\theta}=z=\cos(\theta)+i\sen(\theta)$. Asi $f(x)=e^{2\pi ix}=e^{2\pi i(\frac{\theta}{2\pi})}=e^{i\theta}=z$.
+			
+			
+		\end{proof}
+		
+		\item 
+		\begin{itemize}
+			\item Si $H<G$ demestre que para todo $g\in G$, $gHg^{-1}<G$.
+			\item Demuestre que: $W=\displaystyle\bigcap_{g\in G}{gHg^{-1}}\triangleleft G$
+			\item Demuestre que $H\triangleleft G$ $\Leftrightarrow$ $H=H^x:=\{xhx^{-1}|h\in H\}$, $\forall x\in G$.
+			
+		\end{itemize}
+		
+		\begin{proof}
+			
+			\begin{itemize}
+				\item Sean $gxg^{-1}, gyg^{-1}\in gHg^{-1}$ entonces $(gxg^{-1})(gyg^{-1})^{-1}=(gxg^{-1})(gy^{-1}g^{-1})=gxy^{-1}g^{-1}\in gHg^{-1}$, entonces $gHg^{-1}<G$.
+				
+				\item $xWx^{-1}=x\big(\displaystyle\bigcap_{g\in G}{gHg^{-1}}\big)x^{-1}=\displaystyle\bigcap_{xg\in G}{x(gHg^{-1})x^{-1}}=\displaystyle\bigcap_{g\in G}{gHg^{-1}}$
+				
+				\item supongamos que $H\triangleleft G$, entonces $H=xHx^{-1}$, $\forall x\in G$. Entonces si $a\in H$, $a\in xHx^{-1}$, luego $a=xhx^{-1}$ para algún $h\in H$. La otra inclusion se obtiene de manera similar.
+				
+				Supongamos ahora que $H=H^x$ entonces, sea $a\in xHx^{-1}$, $a=xhx^{-1}$, luego $a\in H$. La otra inclusion se obtiene de manera similar.
+			\end{itemize}
+		\end{proof}
+		
+		\item Sea $G$ un grupo c\'iclico de orden $n$. ¿C\'uantos generadores tiene $G$?
+		
+		\begin{proof}
+			Ya hemos provado que si $g$ es un generador de $G$, entonces si $(n,m)=1$, entonces $g^m$ es un generador de $G$, por tanto hay $\phi(n)$ generadores de $G$.
+		\end{proof}
+		
+		\item Sea $G$ un grupo abeliano finito tal que la ecuacion $x^n=e$ tiene a lo m\'as $n$ soluciones para cada $n$. Demuestre que $G$ es ciclico.
+		
+		\begin{proof}
+			Como $G$ es finito, considere el elemento de orden m\'as grande de $G$, sea $x$ dicho elemento y sea $k=|x|$. Si $k=n$ terminamos, suponga que $k\not= n$, entonces $G\backslash<x>\not=\emptyset$. Sea $y\in G\backslash<x>$ el elmento de menor orden y sea $m=|y|$. Tenemos que $<x>=\{z\in G: z^k=e\}$. Constriremos usando a $x$ y a $y$ un elemento que satisfaga $z^k=e$ que no este en $<x>$. 
+			
+			Considere el conjugado de $<x>$, dicho subgrupo es ciclico y tiene orden $k$, entonces todos sus elementos saisfacen $z^k=e$, esto sgnifica que tanto $<x>$ como $<y>$ son normales.
+			
+			Caso 1: $(m,k)=1.$
+			
+			En este caso tenemos que $<x>\cap <y>=\{e\}$, $|xy|=[k,m]$ y  en general, $[k,m]\geq k$ para cualquier $m$. Como $k$ es el orden maximo, entonces $[k,m]=k$. A demas $xy\notin <x>$ pues de ser cierto esto implicaria que $y\in <x>$. Entonces tenemos otra solucion para $z^n=e$ lo cual es una contradiccion.
+			
+			Caso 2: $(m,k)>1$
+			
+			Sea $d=[m,k]$. Considereel elemento $y^{m/d}$. este tiene orden $d$ y $d\leq m$. entonces $y^{m/d}$ tiene orden menor o igual a $y$, pero como $m$ fue tomado como minimo, tenemos que $m=d$, esto implica que $m|k$. Pero esto implica que $y^k=e$ y esto es otra solucion para $z^k=e$ lo cual es una contradiccion.
+			
+			Se concluye asi que $k=n$ entonces $G$ es ciclico.
+		\end{proof}
+		
+		\item Sean $H$ y $K$ subgrupos normales de $G$ tales que $K\cap H=\{e\}$. Demuestre que $hk=kh$, $\forall h\in H$ y $k\in K$.
+		
+		\begin{proof}
+			Sea $h\in H$, como $K$ y $H$ son normales, $hKh^{-1}=K$, $kHk^{-1}=H$. Entonces para cada $k\in K$, $hkh^{-1}, k^{-1}\in K$, luego $(hkh^{-1})k^{-1}\in K$. De manera similar $h\in H$ y $kh^{-1}k^{-1}\in H$ implican que $h(kh^{-1}k^{-1})\in H$. Luego $hkh^{-1}k^{-1}\in H\cap K=\{e\}$ (por hipotesis), es decir, $hk=kh$.
+		\end{proof}
+		
+		\item 	Si el orden de $G$ es $pq$, con $p$ y $q$ primos diferentes y $G$ tiene subgrupos normales de orden $p$ y $q$ respectivamente. Demuestre que $G$ es ciclico.
+		
+		\begin{proof}
+			Por el teorema de Lagrange, el orden de $H\cap K$ divide a $p, q$ y $pq$, entonces necesariamente $H\cap K=\{e\}$. Por el ejercicio anterior $hk=kh$ $\forall h\in H$, $\forall k\in K$ pues $H$ y $K$ son normales. Entonces $G$ es isomorfo a $H\times K$. Se tiene que $H$ es isomorfo a $\mathbb{Z}_p$ y $K$ es isomorfo a $\mathbb{Z}_q$. A demas $\mathbb{Z}_p\times\mathbb{Z}_Q$ es isomorfo a $\mathbb{Z}_{pq}$ el cual es ciclico.
+		\end{proof}
+		
+		\item Sea $G$ un grupo no abeliano, $Z(G)$ elcentro de $G$. Demuestre que $G/Z(G)$ no es ciclico.
+		
+		\begin{proof}
+			Supongamos que$G/Z(G)$ es ciclico, entonces existe un elemento $x\in G$ tal que $G/Z(G)=<xZ(G)>$. Sea $g\in G$, entonces $gZ(G)=(xZ(G))^m$ para algun $m$ y por definicion $(xZ(G))^m=x^mZ(G)$. En general se cumple que $aH=bH$ si y solo si $b^{-1}a\in H$. En este caso se tiene que $gZ(G)=x^mZ(G)$ si y solo si $(x^m)^{-1}g\in Z(G)$. Entonces existe un $z\in Z(G)$ tal que $(x^m)^{-1}g=z$, asi $g=x^mz$. Sea $h\in G$, entonces podemos escribir $h=x^ky$. Se tiene:
+			
+			$$
+			gh=(x^mz)(x^ky)=x^{m+k}zy=x^{k+m}yz=(x^ky)(x^mz)=hg
+			$$
+			
+			Como $g$ y $h$ fueron arbitrarios, $G$ es abeliano, lo cual es una contradiccion.
+		\end{proof}
+		
+		\item Sea $G$ un grupo, $H$ y $K$ subgrupos. Supongamos que uno de estos es normal. ¿Es HK a subgrupo? ¿Es HK un subgrupo normal?
+		
+		\begin{proof}
+			Supongamos que $K\triangleleft G$. Entonces para todo $h\in H$ se tiene $hKh^{-1}=K$, entonces $hK=Kh$ $\forall h\in H$, luego $HK=KH$ lo cual implica que $HK$ es un subgrupo de $G$.
+			
+			Supongamos que $H$ no es normal. $xHKx^{-1}=HK$ si y solo si $xHK=HKx$ si y solo $xHK=HKx=H(xK)$, $xHK=H(xK)$ si y solo si $xH=Hx$ lo cual es una contradicion.
+		\end{proof}
+		
+		\item Sea $G$ un grupo y $a\in G$. Se define $f_a:G\rightarrow G$ por $f_a(g)=aga^{-1}$. Demuestre que $f_a$ es un isomorfismo
+		
+		\begin{proof}
+			Sean $x,y\in G$ tales que $f_a(x)=f_a(y)$, entonces $axa^{-1}=aya^{-1}$, etonces $ax=ay$ y $x=y$. Esto demuestra que $f_a$ esta bien definida y es inyectiva.
+			
+			Sea $x\in G$, entonces $f_a(a^{-1}xa)=a(a^{-1}xa)a^{-1}=x$. Esto prueba que $f_a$ es suprayectiva.
+			
+			$f_a(xy)=a(xy)a^{-1}=a(xa^{-1}ay)a^{-1}=(axa^{-1})(aya^{-1})=f_a(x)f_a(y)$. Se concluye que $f_a$ es isomorfismo.
+		\end{proof}
+		
+		\item Seam $H$ y $G$ grupos, $f:G\rightarrow H$ un homomorfismo. Demuestre que:
+		
+		\item
+		\begin{itemize}
+			\item $f(a^n)=f(a)^n$ para todo $n\in \mathbb{Z}$.
+			\item $g(\mbox{Ker}f)g^{-1}\subset\mbox{Ker}f$ para todo $g\in G$.
+		\end{itemize}
+		
+		\begin{proof}
+			
+			\begin{itemize}
+				\item Procediendo por induccion, para $n=1$ es claro. Para $n=2$, $f(a^2)=f(aa)=f(a)f(a)=f(a)^2$. Suponga que para $n=k$ se cumple. Considere $f(a^{k+1})=f(a^ka)=f(a^k)f(a)=f(a)^kf(a)=f(a)^{k+1}$. Entonces $f(a^n)=f(a)^n$.
+				
+				\item Sea $x\in g(\mbox{Ker }f)g^{-1}$, $x=gag^{-1}$ con $a\in \mbox{Ker }f$. $f(gag^{-1})=f(g)f(a)f(g^{-1})=f(g)ef(g^{-1})=f(gg^{-1})=f(e)=e$, entonces $x\in \mbox{Ker }f$. 
+			\end{itemize}
+		\end{proof}
+		
+		\item Sea $G$ el grupo aditivo de $\mathbb{Z}[x]$ (polinomios con coeficientes en $\mathbb{Z}$) y $H$ el grupo multiplicativo de los numeros racionales  positivos. Demuestre que $G\cong H$.
+		
+		\begin{proof}
+			Considere al conjunto $P=\{2,3,5,...\}$ (el conjunto de todos los numeros primos. denotaremos como $p_i$ al i-\'esimo n\'umero primo de este conjunto. Entonces $\Phi:\mathbb{Z}[x]\rightarrow \mathbb{Q}$ definida por:
+			
+			$$
+			\phi(\displaystyle\sum_{k=0}^{n}{a_kx^k})=\prod_{k=0}^{n}{p_k^{a_k}}
+			$$
+			
+			Por el teorema fundamental de la aritmetica $\Phi$ es biyectiva y suprayectiva.
+			
+			$$
+			\phi(\displaystyle\sum_{k=0}^{n}{a_kx^k}+\displaystyle\sum_{k=0}^{m}{b_kx^k})=\displaystyle\sum_{k=0}^{max\{n,m\}}{a_kx^k+b_kx^k}=\prod_{k=0}^{max\{n,m\}}{p_k^{a_k+b_k}}=(\prod_{k=0}^{n}{p_k^{a_k}})(\prod_{k=0}^{n}{p_k^{b_k}})
+			$$
+			
+			Se concluye que $\Phi$ es un isomorfismo.
+			
+		\end{proof}
+		
+		\item
+		
+		\begin{itemize}
+			\item Sea $G$ un grupo tal que $x^2=e$ para todo $x\in G$. Demuestre que $G$ es abeliano.
+			
+			\item Un grupo $G$ es abeliano si y solo si la funcion $f:G\rightarrow G$ dada por $f(x)=x^{-1}$ es un homomorfismo.
+		\end{itemize}
+		
+		\begin{proof}
+			
+			\begin{itemize}
+				\item Note que $x^{-1}=x$ $\forall x\in G$. Sean $a,b\in G$, entonces $ab=(b^{-1}a^{-1})^{-1}=(b^{-1}a^{-1})=ba$.
+				
+				\item supongamos que $G$ es abeliano, considere $f:G\rightarrow G$ dada por $f(x)=x^{-1}$. se tiene: $f(xy)=(xy)^{-1}=y^{-1}x^{-1}=x^{-1}y^{-1}=f(x)f(y)$.Luego $f$ es homomorfismo. Ahora suponga que $f$ es homomorfismo, se tiene $xy=(y^{-1}x^{-1})^{-1}=f(y^{-1}x^{-1})=f(y^{-1})f(x^{-1})=yx$. Entonces $G$ es abeliano.
+			\end{itemize}
+		\end{proof}
+		
+		\item Sea $f:G\rightarrow H$ un homomorfismo, $a\in G$ tal que $|a|<+\infty$. Demuestre que $|f(a)|$ divide a $|a|$.
+		
+		\begin{proof}
+			Sea $|a|=n$, $|f(a)|=d$, por el algoritmo de la division podemos escribir $n=qd+r$ con $r<d$. Tenemos que $f(a)^n=f(a^n)=e$, entonces $d|n$, es decir $|f(a)|$ divide a $|a|$
+		\end{proof}
+		
+		\item Sea $G$ un grupo finito. suponga que existe un entero $n>1$ tal que la funcion $f(x)=x^n$ es un homomorfismo. Demuestre que la imagen y el n\'ucleo de $f$ son subgrupos normales de $G$.
+		
+		\begin{proof}
+			Sean $u,v\in\mbox{Ker }f$, se tiene $f(uv^{-1})=f(u)f(v^{-1})=e(v^{-1})^n$. Como $v\in\mbox{Ker }f$, $v^n=e$, entonces $(v^{-1})^n=e$. Por lo tanto $\mbox{Ker }f$ es un subgrupo. De manera similar se comprueba que $\mbox{Im }f$ es un subgrupo. Ya probamos que $g(\mbox{Ker }f)g^{-1}\subset\mbox{Ker }f$. Por lo tanto $\mbox{Ker }f$ es normal. Sea $y\in x\mbox{Im }fx^{-1}$.  Se tiene $f(a)f(G)=f(aG)=f(Ga)=f(G)f(a)$. Entonces $\mbox{Im }F$ es normal en $G$.
+		\end{proof}
+		
+		\item Un grupo $G$ se dice simple, si los unicos subgrupos normales son la identidad y el mismo. Sea $G$ un grupo simple. Si $f:G\rightarrow H$ es un homomorfismo tal que $f(g)\not=e_H$, para alg\'un $g\in G$, entonces $f$ es inyectivo.
+		
+		\begin{proof}
+			Sabemos que Im$f$ es un subgrupo normal, pero como $G$ es simple y sabemos a demas que Im$f\not=\{e\}$, entonces necesariamente Im$f=G$ y por la misma razon Ker$f=\{e\}$, etonces $f$ es inyectiva.
+		\end{proof}
+		
+		\item Sean $H$ y $K$ grupos. Dumestre que $HK$ es abeliano si y solo si $H$ y $K$ lo son.
+		
+		\begin{proof}
+		Supongamos que $HK$ es abeliano. Sea $x,y\in H$, $k\in K$ entonces $xy=x(kk^{-1})y=(xk)(k^{-1}y)=(k^{-1}y)(xk)=k^{-1}(yx)k=k^{-1}k(yx)=yx$ $\forall x,y\in H$. similarmente para $K$. Se concluye que $H$ y $K$ son abelianos.
+		
+		Supongamos ahora que $H$ y $K$ son abelianos, sea $ab,cd\in HK$. Sabemos que $HK$ es un subgrupo si y solo si $HK=KH$. Si $ab,cd\in HK$, entonces existe $xy,uv\in KH$ tal que $ab=xy$ y $cd=uv$ Se tiene: $(ab)(cd)=a(bu)v=a(ub)v=a(cy)v=(ac)(yv)=(ca)(vy)=c(av)y=(ca)(vy)=(ca)(db)=(cd)(ab)$. Por lo tanto $HK$ es abeliano.
+		\end{proof}
+		
+		\item Sean $m,n\in\mathbb{N}$ primos relativos. Demuestre que $\mathbb{Z}_{nm}\cong\mathbb{Z}_n\times\mathbb{Z}_m$. Concluya que si $n=\prod_{i=1}^{k}{p_{i}^{e_i}}$ es la factorizacion de $n$ en primos, entonces $\mathbb{Z}_n\cong\mathbb{Z}_{p^{e_1}}\times...\times\mathbb{Z}_{p^{e_k}}$.
+		
+		\begin{proof}
+			Para demostrarlo tomaremos una tercer estructura y veremos que ambos son isomorfos a esta.
+			
+			Definimos $f:\mathbb{Z}\rightarrow\mathbb{Z}_n\times\mathbb{Z}_m$ mediante $f(x)=(\overline{x},\overline{x})$. $f$ es un homomorfismo. 
+			
+			Por otro lado se tiene:
+			
+			$$
+			\mbox{Ker}f=\{x\in\mathbb{Z}|x+n\mathbb{Z}=0\mbox{ y }x+m\mathbb{Z}=0\}=
+			$$
+			
+			$$
+			=\{x\in\mathbb{Z}|x\in n\mathbb{Z}\cap m\mathbb{Z}\}=n\mathbb{Z}\cap m\mathbb{Z}=nm\mathbb{Z}
+			$$
+			
+			A demas $f$ es suprayectiva. En efecto, $\mbox{Im}(f)\cong\mathbb{Z}/\mbox{Ker}(f)=\mathbb{Z}/nm\mathbb{Z}=\mathbb{Z}_{nm}$ el cual tiene exactamente $nm$ elementos, tantos como $mathbb{Z}_n\times\mathbb{Z}_m$. Entonces $f$ es un isomorfismo de grupos.
+			
+			Si $n=\prod_{i=1}^{k}{p_{i}^{e_i}}$ es la factorizacion de $n$ en primos, por induccion se cumple para n=2, suponga que se cumple para n=k, entonces $\mathbb{Z}_{p^{e_1}}\times...\times\mathbb{Z}_{p^{e_k}}\times\mathbb{Z}_{p^{e_{k+1}}}$ es isomorfo a $\mathbb{Z}_n$. con lo cual termina la prueba.
+		\end{proof}
+		
+		\item Sean $A,B<G$, $[G:B]<+\infty$ entonces $A\cap B$ es de indice finito en $A$ y $[A:A\cap B]\leq [G:B]$ con la igualdad si y solo si $G=AB$.
+		
+		\begin{proof}
+			si $H$ y $K$ son subgrupos de $G$, entonces $[H:H\cap K]\leq [G:K]$. Como $[G:K]$ es finito. La funcion $F:A\rightarrow B$ dada por $(H\cap K)h\mapsto Kh$ con $h\in H$ esta bien definida: $(H\cap K)h'=(H\cap K)h$ implica que $h'h^{-1}\in H\cap K\subset K$ y se tiene $Kh'=Kh$. Esto prueba que $f$ es inyectiva. Entonces $[H:H\cap K]=|A|\leq |B|=[G:K]$. Como $[G:K]$ es finito,  $[H:H\cap K]=[G:K]$ si y solo si $f$ es suprayectiva si y solo si $G=KH$.
+		\end{proof}
+		
+		\item Sea $G$ un grupo, $H$ y $K$ subgrupos tales que $[G:H]$ y $[G:K]$ son finitos y primos relativos. Demuestre que $G=HK$.
+		
+		\begin{proof}
+			Por el problema anterior tenemos que $[H:H\cap K]=[G:K]$ y de manera similar $[K:H\cap K]=[G:H]$, combinando ambos se tiene: $[G:H][H:H\cap K]=[G:K][K:H\cap K]$con lo cual se concluye que $[G:H]|[K:H\cap K]$; y como $[G:K]$ y $[G:H]$ son primos relativos tenemos que $[G:H]=[K:H\cap K]$ con lo cual se concluye la prueba.
+		\end{proof}
+		
+		\item Sea $G$ un grupo finito, $H$ y $K$ subgrupos normales tales que $|H||K|=|G|$. Suponga que una de las siguinetes condiciones se cumple: $H\cap K=\{e\}$ o $HK=G$. Demuestre que $G\cong H\times K$.
+		
+		\begin{proof}
+		Note que $h{-1}k{-1}hk\in K$ y $h^{-1}k^{-1}hk\in H$. asi que tenemos que $h{-1}k{-1}hk\in H\cap K=\{e\}$ esto implica que $hk=kh$
+			
+			Supongamos que $HK=G$. Sea $f:H\times K\rightarrow G$ dada por $f(h,k)=hk$. Por la primera parte $f$ es homomorfismo. Como $HK=G$ para $x\in G$ existe $ab\in HK$ tal que $x=ab$ y $f(a,b)=x$, por lo tanto $f$ es suprayectiva. y como $|H||K|=|G|$, entonces $f$ es suprayectiva.
+			
+		\end{proof}
+		
+		\item Sean $H,K<G$. Suponga que $hk=kh$ para todo $h\in H$ y para todo $h\in H, k\in K$. Suponga que todo elemento de $G$ se escribe de manera \'unica como producto de un elemento de $H$ y un elemento de $K$. Demuestre que $G\cong H\times K$.
+		
+		\begin{proof}
+			Sea $f:H\times K\rightarrow G$ dada por $f(x,y)=xy$. sean $h\in H,k\in K$, entonces $hk=kh$ y se tiene que $f((h,k)(h_1,k_1))=f(hh_1,kk_1)=(hh_1)(kk_1)=h(h_1k)k_1=h(kh_1)k_1=(hk)(h_1k_1)=f(h,k)f(h_1,k_1)$. $f$ es un homomorfismo. Como cada elemento de $G$ tiene representacion unica es claro que $f$ es isomorfismo.
+		\end{proof}
+		
+		\item Construya grupos no abelianos de orden $12,18,24$. Construya ejemplos de grupos no abelianos de orden $6n$, para todo entero $n\geq 1$
+		
+		\begin{proof}
+			El grupo diedral  $D_6$ de orden 12, el grupo diedral $D_9$ de orden 18, el grupo diedral $D_{12}$ de orden 24, asi $D_{3n}$ de orden $6n$ para $n\geq 1$.
+			
+			
+		\end{proof}
+		
+		\item Sea $G$ un grupo no abeliano de orden 8. ¿Puede ser $G$ isomorfo al producto directo de dos grupos de cardinalidad mayor que uno?
+		
+		\begin{proof}
+			Suponga $G=D_4$ Todos los subgrupos normales de $D_4$ contienen a $a^2$, por tanto no se cumpple que la inteseccion de ellos sea trivial. Luego, no puede ser representado como producto directo.
+		\end{proof}
+		
+		\item Sea $G$ un grupo finito que contiene un subgrupo simple $H$ de indice dos. demuestre que $H$ es el unico subgrupo normal propio \'o $G$ contiene un subgrupo $K$ de orden dos tal que $G\cong H\times K$.
+		
+		\begin{proof}
+Suponga que existe $K\triangleleft G$ no trivial  distinto de $H$. Sea $g\in G$, $x\in H\cap Kg^{-1}$, entonces $x=gag^{-1}$, $a\in H\cap K$. por lo tanto $x\in ghg^{-1}=h$ y $x\in gKg^{-1}=K$ por lo tanto $x\in H\cap K$.
+
+Por lo tanto $H\cap K\triangleleft G$ y en particulares normal en $H$, pero $H$ es simple, entonces la interseccion es trivial o es todo $H$ y por hipotesis, si $H\cap K=H$ entonces $H<K$, luego $2=[G:H]=[G:K][K:H]$. entonces se tiene: $[G:K]=1$ y $[K:H]=2$, o se tiene $[G:K]=2$ y $[K:H]=1$. En ambos casos se tiene una contradiccion, por lo tanto $H\cap K=\{e\}$.
+
+Sabemos que $|HK|=\frac{|H||K|}{|H\cap K|}=|H||K|$. Se concluye que $G\cong H\times K$. Como $[G:H]=\frac{|G|}{|H|}=2$, $|H|=\frac{|G|}{2}$, y se sigue que $|K|=\frac{|G|}{2}$. Note que $HK<G$, con lo cual se concluye que $|HK|=|H||K|=2\frac{|G|}{2}=|G|$. Se concluye que $G\cong H\times K$.
+		\end{proof}
+
+	\end{enumerate}
+\end{document}
